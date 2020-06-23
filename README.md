@@ -1,37 +1,14 @@
-## Welcome to GitHub Pages
+## 欢迎来到 【Hi 答案】 页面
 
-You can use the [editor on GitHub](https://github.com/RedEarListeningWind/HiAnswer/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+[【Hi答案】](https://github.com/RedEarListeningWind/HiAnswer)是一款辅助答题脚本，它可以实现对屏幕上的文字进行快速扫描，以发现你所需查询的题目。并到互联网中检索答案。
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### 使用方法
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## 待补充
+ 
+ 
+ 
+### 支持或联系
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/RedEarListeningWind/HiAnswer/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+脚本有问题？查看我们的文档或联系支持，我们将帮助您解决问题。
