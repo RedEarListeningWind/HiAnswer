@@ -1,0 +1,19 @@
+{
+  "assets": [],
+  "build": {
+    "build_id": "813D669E-39",
+    "build_number": 39,
+    "build_time": 1596978810086
+  },
+  "useFeatures": [],
+  "icon": "res/logo.png",
+  "launchConfig": {
+    "hideLogs": true
+  },
+  "main": "main.js",
+  "name": "Hi 答案",
+  "packageName": "com.crtf.hidaBeta",
+  "scripts": {},
+  "versionCode": 65,
+  "versionName": "0.9.6 Beta"
+}

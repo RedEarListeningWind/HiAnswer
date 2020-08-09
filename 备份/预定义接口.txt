@@ -1,0 +1,355 @@
+
+//加入QQ群(1102812451)
+//一起交流学习吧！
+
+var External = new Array();
+var materialColors = ["#e91e63", "#ab47bc", "#5c6bc0", "#7e57c2", "#2196f3", "#00bcd4",
+    "#26a69a", "#4caf50", "#8bc34a", "#ffeb3b", "#ffa726", "#78909c", "#8d6e63"
+];
+External.push({
+        title: "预定义接口1",
+        color: materialColors[random(0, 12)],
+        Enable: true,
+        Function: function Question_Bank_0(Topic, i, implement_i) {
+            //###
+            //console.warn("gg");
+            var Response = http.request("https://wk.vanswo.net/index.php", {
+                method: 'POST',
+                body: 'topic=' + encodeURIComponent(Topic),
+
+                contentType: "application/x-www-form-urlencoded",
+
+                headers: {
+                    'Host': 'wk.vanswo.net',
+                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                    'content-length': '51',
+                    'cache-control': 'max-age=0',
+                    'origin': 'https://wk.wanshiwu.asia',
+                    'upgrade-insecure-requests': '1',
+                    'content-type': 'application/x-www-form-urlencoded',
+                    'user-agent': 'Mozilla/5.0 (Linux; Android 5.1.1; ATH-UL00) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.92 Mobile Safari/537.36',
+
+                    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                    'referer': 'https://wk.wanshiwu.asia/index.php',
+                    'accept-encoding': '',
+                    'accept-language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+                    cookie: '__cfduid=d638f478663d10353a96bebebe33c38501593222713; ' +
+                        '__tins__20801781=%7B%22sid%22%3A%201592399036407%2C%20%22vd%22%3A%201%2C%20%22expires%22%3A%201592400836407%7D; ' +
+                        '__51cke__= ; ' +
+                        '__51laig__=1; ' +
+                        'interface=1; ' +
+                        'topic=' + encodeURIComponent(Topic)
+
+                }
+
+            });
+            //console.info(Response);
+            //###
+            //###
+            var Response_Content = Response.body.string();
+            //###
+            //console.error(i+"\n"+implement_i+"\n"+Response_Content);
+            var Answer = {
+                Answer: Response_Content.match(/<input id="da" (\S+ {0,1})+><\/input>/g)[0].match(/value="[^"]{0,}">/)[0].replace(/value="|">$|<(\S+ {0,1})*>/g, ""),
+                i: i,
+                "implement_i": implement_i
+            };
+            //###
+            //###
+
+            return Answer;
+        }
+    }, {
+        title: "预定义接口2",
+        color: materialColors[random(0, 12)],
+        Enable: true,
+        Function: function Question_Bank_1(Topic, i, implement_i) {
+
+            var Response = http.get("http://api.xmlm8.com/tk.php?t=" + encodeURIComponent(Topic))
+
+            var Response_Content = Response.body.json();
+            //var Response_Content.tm;
+
+            var Answer = {
+                Answer: Response_Content.da,
+                i: i,
+                "implement_i": implement_i
+            };
+
+            return Answer;
+        }
+    }, {
+        title: "预定义接口3",
+        color: materialColors[random(0, 12)],
+        Enable: true,
+        Function: function Question_Bank_2(Topic, i, implement_i) {
+
+            var Response = http.get("http://tiku.71kpay.com/jk/api.php?tm=" + encodeURIComponent(Topic))
+
+            var Response_Content = Response.body.json();
+            //console.info(Response_Content);
+
+            var Answer = {
+                Answer: Response_Content.answer,
+                i: i,
+                "implement_i": implement_i
+            };
+            return Answer;
+
+        }
+    }, {
+        title: "预定义接口4",
+        color: materialColors[random(0, 12)],
+        Enable: true,
+        Function: function Question_Bank_3(Topic, i, implement_i) {
+
+            var Response = http.get("http://api.51aidian.com/api/ct.php?id=511429669&token=Ffb9396D0f53CEf2eB12Aff0caeF73D1&q=" + encodeURIComponent(Topic))
+
+            var Response_Content = Response.body.json();
+            //console.error(Response_Content.data.answer);
+            var Answer = {
+                Answer: Response_Content.data.answer,
+                i: i,
+                "implement_i": implement_i
+            };
+            return Answer;
+        }
+    }, {
+        title: "预定义接口5",
+        color: materialColors[random(0, 12)],
+        Enable: true,
+        Function: function Question_Bank_4(Topic, i, implement_i) {
+
+            var Response = http.post("http://shuakeya.com/daanan/api/web.php", {
+                "q": Topic
+            })
+
+            var Response_Content = Response.body.json();
+
+            var Answer = {
+                Answer: Response_Content.data.answer.replace(/(<\S+>)/g, ""),
+                i: i,
+                "implement_i": implement_i
+            };
+            return Answer;
+        }
+    }, {
+        title: "预定义接口6",
+        color: materialColors[random(0, 12)],
+        Enable: true,
+        Function: function Question_Bank_5(Topic, i, implement_i) {
+
+            var Response = http.get("http://lyp666.xyz/index1.php?question=" + encodeURIComponent(Topic))
+            //console.info(Response.body.string());
+            var Response_Content = Response.body.json();
+
+            var Answer = {
+                Answer: Response_Content.answer + "<C>",
+                i: i,
+                "implement_i": implement_i
+            };
+            return Answer;
+        }
+    }, {
+        title: "预定义接口7",
+        color: materialColors[random(0, 12)],
+        Enable: true,
+        Function: function Question_Bank_6(Topic, i, implement_i) {
+
+            var Response = http.request("http://qs.nnarea.cn/OnlineCourseBot/topic", {
+                method: 'POST',
+                body: "q=" + encodeURIComponent(Topic),
+                headers: {
+                    'Content-type': 'application/x-www-form-urlencoded'
+                }
+            });
+            var Response_Content = Response.body.json();
+            console.info(Response_Content);
+            var Answer = {
+                Answer: Response_Content.answer.replace(/\\n/, "") + "<A>",
+                i: i,
+                "implement_i": implement_i
+            };
+            return Answer;
+        }
+    }, {
+        title: "预定义接口8",
+        color: materialColors[random(0, 12)],
+        Enable: true,
+        Function: function Question_Bank_7(Topic, i, implement_i) {
+
+            var Response = http.request("http://cx.icodef.com/wyn-nb", {
+                method: 'POST',
+                body: 'question=' + encodeURIComponent(Topic) +
+                    '&type=0' +
+                    '&id=579e99e8f0d2499fa4f27f86a991987d',
+                headers: {
+                    'Content-type': 'application/x-www-form-urlencoded',
+                    'Authorization': 'setting.token',
+                }
+            });
+            var Response_Content = Response.body.json();
+            console.info(Response_Content);
+            var Answer = {
+                Answer: Response_Content.data + "<B>",
+                i: i,
+                "implement_i": implement_i
+            };
+            return Answer;
+        }
+    }, {
+        title: "预定义接口9",
+        color: materialColors[random(0, 12)],
+        Enable: false,
+        Function: function Question_Bank_0(Topic, i, implement_i) {
+            //###
+            //console.warn("gg");
+            var Response = http.request("https://wk.vanswo.net/index.php", {
+                method: 'POST',
+                body: 'topic=' + encodeURIComponent(Topic),
+
+                contentType: "application/x-www-form-urlencoded",
+
+                headers: {
+                    'Host': 'wk.vanswo.net',
+                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                    'content-length': '51',
+                    'cache-control': 'max-age=0',
+                    'origin': 'https://wk.wanshiwu.asia',
+                    'upgrade-insecure-requests': '1',
+                    'content-type': 'application/x-www-form-urlencoded',
+                    'user-agent': 'Mozilla/5.0 (Linux; Android 5.1.1; ATH-UL00) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.92 Mobile Safari/537.36',
+
+                    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                    'referer': 'https://wk.wanshiwu.asia/index.php',
+                    'accept-encoding': '',
+                    'accept-language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+                    cookie: '__cfduid=d638f478663d10353a96bebebe33c38501593222713; ' +
+                        '__tins__20801781=%7B%22sid%22%3A%201592399036407%2C%20%22vd%22%3A%201%2C%20%22expires%22%3A%201592400836407%7D; ' +
+                        '__51cke__= ; ' +
+                        '__51laig__=1; ' +
+                        'interface=2; ' +
+                        'topic=' + encodeURIComponent(Topic)
+
+                }
+
+            });
+            //console.info(Response);
+            //###
+            //###
+            var Response_Content = Response.body.string();
+            //###
+            //console.error(i+"\n"+implement_i+"\n"+Response_Content);
+            var Answer = {
+                Answer: Response_Content.match(/<input id="da" (\S+ {0,1})+><\/input>/g)[0].match(/value="[^"]{0,}">/)[0].replace(/value="|">$|<(\S+ {0,1})*>/g, ""),
+                i: i,
+                "implement_i": implement_i
+            };
+            //###
+            //###
+
+            return Answer;
+        }
+    }, {
+        title: "预定义接口10",
+        color: materialColors[random(0, 12)],
+        Enable: true,
+        Function: function Question_Bank_0(Topic, i, implement_i) {
+            //###
+            //console.warn("gg");
+            var Response = http.request("https://wk.vanswo.net/index.php", {
+                method: 'POST',
+                body: 'topic=' + encodeURIComponent(Topic),
+
+                contentType: "application/x-www-form-urlencoded",
+
+                headers: {
+                    'Host': 'wk.vanswo.net',
+                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                    'content-length': '51',
+                    'cache-control': 'max-age=0',
+                    'origin': 'https://wk.wanshiwu.asia',
+                    'upgrade-insecure-requests': '1',
+                    'content-type': 'application/x-www-form-urlencoded',
+                    'user-agent': 'Mozilla/5.0 (Linux; Android 5.1.1; ATH-UL00) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.92 Mobile Safari/537.36',
+
+                    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                    'referer': 'https://wk.wanshiwu.asia/index.php',
+                    'accept-encoding': '',
+                    'accept-language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+                    cookie: '__cfduid=d638f478663d10353a96bebebe33c38501593222713; ' +
+                        '__tins__20801781=%7B%22sid%22%3A%201592399036407%2C%20%22vd%22%3A%201%2C%20%22expires%22%3A%201592400836407%7D; ' +
+                        '__51cke__= ; ' +
+                        '__51laig__=1; ' +
+                        'interface=3; ' +
+                        'topic=' + encodeURIComponent(Topic)
+
+                }
+
+            });
+            //console.info(Response);
+            //###
+            //###
+            var Response_Content = Response.body.string();
+            //###
+            //console.error(i+"\n"+implement_i+"\n"+Response_Content);
+            var Answer = {
+                Answer: Response_Content.match(/<input id="da" (\S+ {0,1})+><\/input>/g)[0].match(/value="[^"]{0,}">/)[0].replace(/value="|">$|<(\S+ {0,1})*>/g, ""),
+                i: i,
+                "implement_i": implement_i
+            };
+            //###
+            //###
+
+            return Answer;
+        }
+    }, {
+        title: "预定义接口11",
+        color: materialColors[random(0, 12)],
+        Enable: false,
+        Function: function Question_Bank_0(Topic, i, implement_i) {
+ 
+            var Response = http.request("https://wk.vanswo.net/index.php", {
+                method: 'POST',
+                body: 'topic=' + encodeURIComponent(Topic),
+
+                contentType: "application/x-www-form-urlencoded",
+
+                headers: {
+                    'Host': 'wk.vanswo.net',
+                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                    'content-length': '51',
+                    'cache-control': 'max-age=0',
+                    'origin': 'https://wk.wanshiwu.asia',
+                    'upgrade-insecure-requests': '1',
+                    'content-type': 'application/x-www-form-urlencoded',
+                    'user-agent': 'Mozilla/5.0 (Linux; Android 5.1.1; ATH-UL00) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.92 Mobile Safari/537.36',
+
+                    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                    'referer': 'https://wk.wanshiwu.asia/index.php',
+                    'accept-encoding': '',
+                    'accept-language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+                    cookie: '__cfduid=d638f478663d10353a96bebebe33c38501593222713; ' +
+                        '__tins__20801781=%7B%22sid%22%3A%201592399036407%2C%20%22vd%22%3A%201%2C%20%22expires%22%3A%201592400836407%7D; ' +
+                        '__51cke__= ; ' +
+                        '__51laig__=1; ' +
+                        'interface=4; ' +
+                        'topic=' + encodeURIComponent(Topic)
+
+                }
+
+            });
+           
+            var Response_Content = Response.body.string();
+            var Answer = {
+                Answer: Response_Content.match(/<input id="da" (\S+ {0,1})+><\/input>/g)[0].match(/value="[^"]{0,}">/)[0].replace(/value="|">$|<(\S+ {0,1})*>/g, ""),
+                i: i,
+                "implement_i": implement_i
+            };
+
+            return Answer;
+        }
+    }
+);
+
+module.exports = External;
